@@ -17,9 +17,6 @@ public class OrderItemEntity {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
-        @Column(name = "order_id")
-        private Long orderId;
-
         @Column(name = "menu_item_id")
         private Long menuItemId;
 
@@ -29,7 +26,7 @@ public class OrderItemEntity {
         private Integer quantity;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "order_id", insertable = false, updatable = false)
+        @JoinColumn(name = "order_id")
         private OrderEntity order;
 
         @ManyToOne(fetch = FetchType.LAZY)

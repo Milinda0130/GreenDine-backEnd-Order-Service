@@ -27,8 +27,7 @@ public class OrderController {
             OrderDTO createdOrder = orderService.createOrder(orderDTO);
             return new ResponseEntity<>(createdOrder, HttpStatus.CREATED);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            throw  new RuntimeException(e.getMessage());
         }
     }
 

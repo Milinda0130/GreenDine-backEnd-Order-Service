@@ -22,6 +22,9 @@ public class OrderItemServiceImpl implements OrderItemService {
 
     @Override
     public OrderItemDTO createOrderItem(OrderItemDTO orderItemDTO) {
+        // Ensure ID is null for new entities to allow database to generate it
+        orderItemDTO.setId(null);
+
         OrderItemEntity orderItemEntity = modelMapper.map(orderItemDTO, OrderItemEntity.class);
         OrderItemEntity savedEntity = orderItemRepository.save(orderItemEntity);
         return modelMapper.map(savedEntity, OrderItemDTO.class);
